@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-slate-950 text-slate-200 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  .light body {
+    @apply bg-slate-100 text-slate-800;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm transition-all duration-200;
+  }
+  .dark .card {
+    @apply border-slate-800 bg-slate-900/60;
+  }
+  .light .card {
+    @apply border-slate-200 bg-white;
+  }
+  .card-hover {
+    @apply hover:border-slate-700 hover:bg-slate-900;
+  }
+  .light .card-hover {
+    @apply hover:border-slate-300 hover:bg-slate-50;
+  }
+  .input {
+    @apply rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-sm text-slate-200 outline-none transition-colors focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500;
+  }
+  .light .input {
+    @apply border-slate-300 bg-white text-slate-800;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-150 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-cyan-500 text-slate-950 hover:bg-cyan-400 active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply border border-slate-700 bg-slate-800 text-slate-200 hover:bg-slate-700;
+  }
+  .light .btn-secondary {
+    @apply border-slate-300 bg-white text-slate-700 hover:bg-slate-100;
+  }
+  .btn-danger {
+    @apply bg-red-500/90 text-white hover:bg-red-500;
+  }
+  .table-header {
+    @apply text-xs font-semibold uppercase tracking-wider text-slate-500;
+  }
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
